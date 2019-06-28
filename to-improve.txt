@@ -1,0 +1,4 @@
+- comment / uncomment blocks
+- search and replacing
+- delete without using the yank buffer
+- learn more about the registers
