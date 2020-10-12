@@ -15,15 +15,38 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'https://github.com/mbbill/undotree', { 'branch': 'master' }
 call plug#end()
+
+set directory=$HOME/.vim/swapfiles
+
+" Make folding appear expanded on file opening
+au BufRead * normal zR
+
+" Basic settings
+set foldmethod=syntax
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
+set smarttab
+set smartcase
+" Set permanent undo
+set undofile
+set nofixendofline
+set number
+set laststatus=2
+
 " GoTo code navigation.
-"
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 nnoremap <Leader>f :<C-u>ClangFormat<CR>
+
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -36,7 +59,7 @@ let g:syntastic_cpp_cpplint_exec = 'cpplint'
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-set directory=$HOME/.vim/swapfiles
+" Startify settings
 let g:startify_enable_special         = 0
 let g:startify_enable_unsafe          = 1
 let g:startify_files_number           = 15
@@ -70,23 +93,12 @@ endfunction
 
 command! -nargs=1 StartifyAddBookmark call <sid>sy_add_bookmark(<q-args>)
 
-set number
-
-set laststatus=2
+" NERDTree settings
+let g:NERDTreeWinSize = 60
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.moc$']
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 set noeol
-filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
-set smarttab
-set smartcase
-set undofile
-set nofixendofline
 
 "au VimEnter *  NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -108,20 +120,11 @@ fun! TrimWhitespace()
     call winrestview(l:save)
 endfun
 command! Tws call TrimWhitespace()
-function TrimSpaces() range
-let oldhlsearch=ShowSpaces(1)
-execute a:firstline.",".a:lastline."substitute ///gec"
-let &hlsearch=oldhlsearch
-endfunction
 
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
+nnoremap <Leader>e :CocDiagnostics<CR>
 nnoremap NM :NERDTreeToggle<CR>
-cnoremap !py3 !python3 %:p<CR>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
@@ -129,7 +132,6 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit -v -q<CR>
 nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
 nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>e :CocDiagnostics<CR> 
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR><CR>
 nnoremap <Leader>gl :silent! Glog -- %<CR>:bot copen<CR>
