@@ -1,10 +1,12 @@
 call plug#begin('~/.config/nvim/') " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch' : 'release'}
 Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'mileszs/ack.vim'
 " fuzzy find files
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'scrooloose/nerdtree'
@@ -39,18 +41,36 @@ set undofile
 set nofixendofline
 set number
 set laststatus=2
-
+set clipboard=unnamedplus
+set listchars=eol:$,tab:>=,trail:.
+set list
+set background=dark
+set cursorline
+set hidden
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <Leader>f :<C-u>ClangFormat<CR>
-
+nnoremap <Leader>h :A<CR>
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
+
+" clang-format
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11",
+            \ "BreakBeforeBraces" : "Stroustrup",
+            \ "ColumnLimit" : 120}
 
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_c_checkers = ['cpplint']
@@ -121,6 +141,8 @@ fun! TrimWhitespace()
 endfun
 command! Tws call TrimWhitespace()
 
+
+nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
 nnoremap <Leader>e :CocDiagnostics<CR>
@@ -131,6 +153,7 @@ nnoremap <Leader>ga :Git add %:p<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gc :Gcommit -v -q<CR>
 nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
+nmap <leader>rn <Plug>(coc-rename)
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR><CR>
