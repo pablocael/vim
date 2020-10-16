@@ -5,11 +5,9 @@ Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'mileszs/ack.vim'
 " fuzzy find files
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
-Plug 'scrooloose/nerdtree'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/vim-clang-format'
@@ -18,12 +16,18 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/mbbill/undotree', { 'branch': 'master' }
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
 call plug#end()
 
 set directory=$HOME/.vim/swapfiles
 
 " Make folding appear expanded on file opening
 au BufRead * normal zR
+" Add gdb integration
+packadd termdebug
 
 " Basic settings
 set foldmethod=syntax
@@ -47,6 +51,9 @@ set list
 set background=dark
 set cursorline
 set hidden
+" make insertion of bracets to auto add closing bracets
+inoremap { {<CR>}<Esc>ko
+
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
@@ -62,13 +69,16 @@ nnoremap <Leader>h :A<CR>
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_posix_standard = 1
 " clang-format
 let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "true",
             \ "AlwaysBreakTemplateDeclarations" : "true",
             \ "Standard" : "C++11",
+            \ 'DerivePointerAlignment': "false",
+            \ 'PointerAlignment': "Left",
             \ "BreakBeforeBraces" : "Stroustrup",
             \ "ColumnLimit" : 120}
 
@@ -142,6 +152,7 @@ endfun
 command! Tws call TrimWhitespace()
 
 
+nnoremap <Leader>gdb :Termdebug<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
