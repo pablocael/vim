@@ -3,7 +3,6 @@ Plug 'neoclide/coc.nvim', {'branch' : 'release'}
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'mileszs/ack.vim'
-" fuzzy find files
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'scrooloose/nerdtree'
@@ -13,6 +12,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/vim-clang-format'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/mbbill/undotree', { 'branch': 'master' }
@@ -20,15 +20,27 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/tenfyzhong/vim-gencode-cpp.git'
 call plug#end()
 
-set directory=$HOME/.vim/swapfiles
+if has('nvim')
+    let g:python3_host_prog = '/usr/bin/python3'
+else
+    set pyxversion=3
 
+    " OSX
+    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
+
+    " Windows
+    set pythonthreedll=python37.dll
+    set pythonthreehome=C:\Python37
+endif
+set directory=$HOME/.vim/swapfiles
+let mapleader = ","
 " Make folding appear expanded on file opening
 au BufRead * normal zR
 " Add gdb integration
 packadd termdebug
-
 " Basic settings
 set foldmethod=syntax
 filetype plugin indent on
@@ -52,7 +64,14 @@ set background=dark
 set cursorline
 set hidden
 " make insertion of bracets to auto add closing bracets
-inoremap { {<CR>}<Esc>ko
+"inoremap { {<CR>}<Esc>ko
+"
+" make TAB and SHIFT + TAB to navigate between buffers in normal mode
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+
+" set current line color
+highlight CursorLine ctermbg=Black
 
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
@@ -65,6 +84,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <Leader>f :<C-u>ClangFormat<CR>
 nnoremap <Leader>h :A<CR>
+
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -151,8 +171,12 @@ fun! TrimWhitespace()
 endfun
 command! Tws call TrimWhitespace()
 
-
-nnoremap <Leader>gdb :Termdebug<CR>
+nnoremap <Leader>df :GenDefinition<CR>
+nnoremap <Leader>dc :GenDeclaration<CR>
+nnoremap <Leader>b :Break<CR>
+nnoremap <Leader>s :Step<CR>
+nnoremap <Leader>o :Over<CR>
+nnoremap <Leader>fi :CocFix<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
