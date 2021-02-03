@@ -2,19 +2,21 @@ call plug#begin('~/.config/nvim/') " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch' : 'release'}
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/ap/vim-buftabline.git'
+Plug 'jupyter-vim/jupyter-vim'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/vim-scripts/a.vim.git'
+Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/vim-clang-format'
+Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'https://github.com/mbbill/undotree', { 'branch': 'master' }
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -23,18 +25,8 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tenfyzhong/vim-gencode-cpp.git'
 call plug#end()
 
-if has('nvim')
-    let g:python3_host_prog = '/usr/bin/python3'
-else
-    set pyxversion=3
-
-    " OSX
-    set pythonthreedll=/Library/Frameworks/Python.framework/Versions/3.6/Python
-
-    " Windows
-    set pythonthreedll=python37.dll
-    set pythonthreehome=C:\Python37
-endif
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:neotex_enabled = 2
 set directory=$HOME/.vim/swapfiles
 let mapleader = ","
 " Make folding appear expanded on file opening
