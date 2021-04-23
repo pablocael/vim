@@ -16,5 +16,6 @@
        }
     }
   },
-  "clangd.semanticHighlighting": true
+  "clangd.semanticHighlighting": true,
+  "python.linting.pylintArgs": ["--rcfile", "$HOME/.pylintrc"]
 }

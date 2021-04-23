@@ -7,8 +7,10 @@ Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/vim-scripts/a.vim.git'
 Plug 'lervag/vimtex'
+Plug 'https://github.com/vim-scripts/Rename2'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
+Plug 'https://github.com/tell-k/vim-autopep8'
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'vim-syntastic/syntastic'
 Plug 'rhysd/vim-clang-format'
@@ -23,6 +25,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'https://github.com/octol/vim-cpp-enhanced-highlight.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tenfyzhong/vim-gencode-cpp.git'
+Plug 'https://github.com/aserebryakov/vim-todo-lists.git'
 call plug#end()
 
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -47,6 +50,7 @@ set smartcase
 " Set permanent undo
 set undofile
 set nofixendofline
+"set relativenumber
 set number
 set laststatus=2
 set clipboard=unnamedplus
@@ -163,6 +167,9 @@ fun! TrimWhitespace()
 endfun
 command! Tws call TrimWhitespace()
 
+nnoremap <Leader>c :JupyterSendCell<CR>
+nnoremap <Leader>j :JupyterConnect<CR>
+nnoremap <Leader>r :JupyterRunFile<CR>
 nnoremap <Leader>df :GenDefinition<CR>
 nnoremap <Leader>dc :GenDeclaration<CR>
 nnoremap <Leader>b :Break<CR>
