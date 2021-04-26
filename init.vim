@@ -1,5 +1,8 @@
 call plug#begin('~/.config/nvim/') " Use release branch (recommend)
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'neoclide/coc.nvim', {'branch' : 'release'}
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/ap/vim-buftabline.git'
 Plug 'jupyter-vim/jupyter-vim'
@@ -11,10 +14,6 @@ Plug 'https://github.com/vim-scripts/Rename2'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-startify'
 Plug 'https://github.com/tell-k/vim-autopep8'
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-Plug 'vim-syntastic/syntastic'
-Plug 'rhysd/vim-clang-format'
-Plug 'donRaphaco/neotex', { 'for': 'tex' }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -167,8 +166,9 @@ fun! TrimWhitespace()
 endfun
 command! Tws call TrimWhitespace()
 
-nnoremap <Leader>c :JupyterSendCell<CR>
+nnoremap <Leader>rf :Rename <C-R>=expand("%")<CR>
 nnoremap <Leader>j :JupyterConnect<CR>
+nnoremap <Leader>c :JupyterSendCell<CR>
 nnoremap <Leader>r :JupyterRunFile<CR>
 nnoremap <Leader>df :GenDefinition<CR>
 nnoremap <Leader>dc :GenDeclaration<CR>
