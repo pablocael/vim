@@ -1,29 +1,29 @@
 call plug#begin('~/.vim/plugger/') " Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
+Plug 'aserebryakov/vim-todo-lists'
 call plug#end()
 
+" let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
 set number
-let g:ale_fixers = {
-      \    'python': ['yapf'],
-      \}
-nmap <F10> :ALEFix<CR>
-let g:ale_linters = {
-      \   'python': ['flake8', 'pylint'],
-      \   'ruby': ['standardrb', 'rubocop'],
-      \   'javascript': ['eslint'],
-      \}
-let g:ale_completion_enabled = 1
+" let g:ale_fixers = {
+"       \    'python': ['yapf'],
+"       \}
 
-set omnifunc=ale#completion#OmniFunc
+" nmap <Leader>fi :ALEFix<CR>
+" let g:ale_linters = {
+"       \   'python': ['pyright'],
+"       \   'ruby': ['standardrb', 'rubocop'],
+"       \   'javascript': ['eslint'],
+"       \}
 
-" register the language server
-if executable('jedi-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'jedi-language-server',
-        \ 'cmd': {server_info->['jedi-language-server']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
+" Pylint configuration file
+" let g:pymode_lint_config = '$HOME/.pylint.rc'
+" let g:ale_completion_enabled = 1
+let g:pymode_options_max_line_length=120
+
+" set omnifunc=ale#completion#OmniFunc
+
 let g:python_host_prog  = '/usr/local/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
@@ -87,8 +87,10 @@ let g:clang_format#style_options = {
             \ "BreakBeforeBraces" : "Stroustrup",
             \ "ColumnLimit" : 120}
 
-
-" Startify settings
+" BufExplorer options
+let g:bufExplorerShowRelativePath=1
+"
+" " Startify settings
 let g:startify_enable_special         = 0
 let g:startify_enable_unsafe          = 1
 let g:startify_files_number           = 15
@@ -99,7 +101,7 @@ let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_session_savevars = ['&makeprg']
-let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
+let g:startify_bookmarks = [ '~/.vim_runtime/my_configs.vim' ]
 let g:startify_list_order = [
       \ ['  Bookmarks:'],
       \ 'bookmarks',
@@ -129,16 +131,67 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 set noeol
 
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 fun! TrimWhitespace()
     let l:save = winsaveview()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfun
 command! Tws call TrimWhitespace()
+
+" CoC commands
+"
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+command! GoToDef call CocActionAsync('jumpDefinition')
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
 let g:airline#extensions#tabline#buffer_min_count = 2
+nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap NM :NERDTreeToggle<CR>
+nnoremap gd :GoToDef<CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
