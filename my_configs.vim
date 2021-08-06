@@ -4,7 +4,9 @@ Plug 'mhinz/vim-startify'
 Plug 'aserebryakov/vim-todo-lists'
 call plug#end()
 
-" let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
+" REMINDER: for making Coc.nvim python work properly, :CocInstall coc-pyright and pylint --generate-rcfile > ~/.pylintrc 
+"
+" " let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
 set number
 " let g:ale_fixers = {
 "       \    'python': ['yapf'],
@@ -131,7 +133,11 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 set noeol
 
-highlight ExtraWhitespace ctermbg=red guibg=red
+hi Search guibg=peru guifg=wheat
+hi Search ctermbg=LightYellow guibg=LightYellow
+hi Search ctermfg=Red guifg=Red
+
+highlight ExtraWhitespace ctermbg=yellow guibg=yellow
 match ExtraWhitespace /\s\+$/
 fun! TrimWhitespace()
     let l:save = winsaveview()
