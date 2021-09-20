@@ -26,8 +26,14 @@ let g:pymode_options_max_line_length=120
 
 " set omnifunc=ale#completion#OmniFunc
 
-let g:python_host_prog  = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog  = "/usr/local/bin/python"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
+ call coc#config('python', {
+  \   'jediEnabled': v:false,
+  \   'pythonPath': "/usr/local/bin/python3"
+  \ })
+" latex plugin configuration
 
 set directory=$HOME/.vim/swapfiles
 let mapleader = ","
