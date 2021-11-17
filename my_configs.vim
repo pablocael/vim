@@ -2,7 +2,10 @@ call plug#begin('~/.vim/plugger/') " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
 Plug 'aserebryakov/vim-todo-lists'
+Plug 'ericcurtin/CurtineIncSw.vim'
 call plug#end()
+
+let g:ale_enabled=0
 
 " REMINDER: for making Coc.nvim python work properly, :CocInstall coc-pyright and pylint --generate-rcfile > ~/.pylintrc
 "
@@ -238,6 +241,7 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap NM :NERDTreeToggle<CR>
 nnoremap gd :GoToDef<CR>
+nnoremap <Leader>hh :call CurtineIncSw() <CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
