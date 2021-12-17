@@ -9,6 +9,7 @@ call plug#end()
 
 let g:ale_enabled=0
 
+
 " REMINDER: for making Coc.nvim python work properly, :CocInstall coc-pyright and pylint --generate-rcfile > ~/.pylintrc
 "
 " " let g:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
@@ -38,6 +39,12 @@ let g:python3_host_prog = "/usr/local/bin/python3"
   \   'jediEnabled': v:false,
   \   'pythonPath': "/usr/local/bin/python3"
   \ })
+
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " latex plugin configuration
 
 set directory=$HOME/.vim/swapfiles
@@ -265,6 +272,6 @@ nnoremap <Leader>gm :Gmove<Space>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gB :Git branch<Space>
 nnoremap <Leader>go :Git checkout<Space>
-nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gP :Gpull<CR>
 nnoremap <Leader>gh :Gbrowse<CR>
