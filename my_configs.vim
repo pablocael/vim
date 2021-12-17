@@ -3,6 +3,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'ericcurtin/CurtineIncSw.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 let g:ale_enabled=0
@@ -44,6 +46,12 @@ let mapleader = ","
 au BufRead * normal zR
 " Add gdb integration
 packadd termdebug
+packadd! vimspector
+
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
+
 " Basic settings
 set foldmethod=syntax
 filetype plugin indent on
