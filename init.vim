@@ -249,22 +249,22 @@ nnoremap NM :NERDTreeToggle<CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gc :Gcommit -v -q<CR>
-nnoremap <Leader>gt :Gcommit -v -q %:p<CR>
+nnoremap <Leader>gs :Git<CR>
+nnoremap <Leader>gc :Git commit -v -q<CR>
+nnoremap <Leader>gt :Git commit -v -q %:p<CR>
 nmap <leader>rn <Plug>(coc-rename)
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gw :Gwrite<CR><CR>
+nnoremap <Leader>gd :Git diff<CR>
+nnoremap <Leader>gr :Git read<CR>
+nnoremap <Leader>gw :Git write<CR><CR>
 nnoremap <Leader>gl :silent! Glog -- %<CR>:bot copen<CR>
-nnoremap <Leader>gg :Ggrep<Space>
-nnoremap <Leader>gm :Gmove<Space>
-nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gg :Git grep<Space>
+nnoremap <Leader>gm :Git move<Space>
+nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gB :Git branch<Space>
 nnoremap <Leader>go :Git checkout<Space>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gP :Gpull<CR>
-nnoremap <Leader>gh :Gbrowse<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gP :Git pull<CR>
+nnoremap <Leader>gh :Git browse<CR>
 
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
