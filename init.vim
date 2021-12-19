@@ -30,6 +30,9 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Plugin for surrounding blocks with ("or'
 Plug 'https://github.com/tpope/vim-surround.git'
+
+" If you have nodejs and yarn
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 filetype plugin indent on
@@ -101,8 +104,21 @@ let g:startify_list_order = [
 let g:startify_custom_indices =
       \ map(range(0,9), 'string(v:val)') +
       \ map(range(char2nr('A'),char2nr('Z')), 'nr2char(v:val)')
-let g:startify_custom_header =
-      \ map(split(system('figlet Welcome'), '\n'), '"   ". v:val') + ['','']
+ let g:startify_custom_header = [
+            \ '             ⠀⠀⠀⠀⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀',
+            \ '             ⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷',
+            \ '             ⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇',
+            \ '             ⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀OK⠀ ⡇',
+            \ '             ⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇',
+            \ '             ⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼',
+            \ '             ⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞',
+            \ '             ⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁',
+            \ '             ⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀',
+            \ '             ⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿',
+            \ '             ⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸',
+            \ '             ⣿⣿⣧⣀⣿.........⣀⣰⣏⣘⣆⣀',
+            \ ]
+
 function! s:sy_add_bookmark(bookmark)
     if !exists('g:startify_bookmarks')
         let g:startify_bookmarks = []
