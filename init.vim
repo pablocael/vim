@@ -33,6 +33,12 @@ Plug 'https://github.com/tpope/vim-surround.git'
 
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" Allows showing buffes in a window and navigating between them
+Plug 'jlanzarotta/bufexplorer'
+
+" Allows cycling between yanked chunks
+Plug 'maxbrunsfeld/vim-yankstack'
 call plug#end()
 
 filetype plugin indent on
@@ -127,6 +133,19 @@ function! s:sy_add_bookmark(bookmark)
 endfunction
 
 command! -nargs=1 StartifyAddBookmark call <sid>sy_add_bookmark(<q-args>)
+
+"----------------------------------------------------------
+" Ctrlp plugin configuration
+"----------------------------------------------------------
+let g:ctrlp_map = '<C-f>'
+map <leader>j :CtrlP<cr>
+map <C-b> :CtrlPBuffer<cr>
+
+"----------------------------------------------------------
+" Yankstack configurations
+"----------------------------------------------------------
+nmap <C-p> <Plug>yankstack_substitute_older_paste
+nmap <C-n> <Plug>yankstack_substitute_newer_paste
 
 "----------------------------------------------------------
 " Neovim's Python provider
@@ -246,7 +265,7 @@ command! Tws call TrimWhitespace()
 let g:airline#extensions#tabline#buffer_min_count = 2
 
 nnoremap <esc><esc> :silent! nohls<cr>
-nnoremap <Leader>w :BufExplorerHorizontalSplit<CR>
+nnoremap <Leader>o :BufExplorerHorizontalSplit<CR>
 nnoremap <Leader>rf :Rename <C-R>=expand("%")<CR>
 nnoremap <Leader>j :JupyterConnect<CR>
 nnoremap <Leader>c :JupyterSendCell<CR>
@@ -255,13 +274,12 @@ nnoremap <Leader>df :GenDefinition<CR>
 nnoremap <Leader>dc :GenDeclaration<CR>
 nnoremap <Leader>b :Break<CR>
 nnoremap <Leader>s :Step<CR>
-nnoremap <Leader>o :Over<CR>
 nnoremap <Leader>fi :CocFix<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
 nnoremap <Leader>e :CocDiagnostics<CR>
-nnoremap NM :NERDTreeToggle<CR>
+nnoremap nn :NERDTreeToggle<CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
@@ -270,14 +288,8 @@ nnoremap <Leader>gc :Git commit -v -q<CR>
 nnoremap <Leader>gt :Git commit -v -q %:p<CR>
 nmap <leader>rn <Plug>(coc-rename)
 nnoremap <Leader>gd :Git diff<CR>
-nnoremap <Leader>gr :Git read<CR>
-nnoremap <Leader>gw :Git write<CR><CR>
 nnoremap <Leader>gl :silent! Glog -- %<CR>:bot copen<CR>
-nnoremap <Leader>gg :Git grep<Space>
-nnoremap <Leader>gm :Git move<Space>
 nnoremap <Leader>gb :Git blame<CR>
-nnoremap <Leader>gB :Git branch<Space>
-nnoremap <Leader>go :Git checkout<Space>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gP :Git pull<CR>
 nnoremap <Leader>gh :Git browse<CR>
