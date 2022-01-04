@@ -1,5 +1,11 @@
 call plug#begin('~/.config/nvim/') " Use release branch (recommend)
 
+" Plugin for adding debugging ui in vim
+Plug 'puremourning/vimspector'
+
+" A plugin for vimspector to setup all python configurations
+Plug 'sagi-z/vimspectorpy', { 'do': { -> vimspectorpy#update() } }
+
 " Plugin for intellisence in multiple languages
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -43,6 +49,11 @@ call plug#end()
 
 filetype plugin indent on
 syntax enable
+
+"----------------------------------------------------------
+" Vimspector options
+"----------------------------------------------------------
+"packadd! vimspector
 
 "----------------------------------------------------------
 " Airline options
@@ -237,6 +248,15 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <Leader>f :<C-u>ClangFormat<CR>
 nnoremap <Leader>a :Ack
 
+" Vimspector
+nmap <C-S-F5> <Plug>VimspectorRestart
+nmap <F5> <Plug>VimspectorContinue
+nmap <F3> <Plug>VimspectorStop
+nmap <F9> <Plug>VimspectorToggleBreakpoint
+nmap <F10> <Plug>VimspectorStepOver
+nmap <F11> <Plug>VimspectorStepInto
+nmap <S-F11> <Plug>VimspectorStepOut
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -279,7 +299,7 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
 nnoremap <Leader>e :CocDiagnostics<CR>
-nnoremap nn :NERDTreeToggle<CR>
+nnoremap mm :NERDTreeToggle<CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
