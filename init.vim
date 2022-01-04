@@ -249,13 +249,19 @@ nnoremap <Leader>f :<C-u>ClangFormat<CR>
 nnoremap <Leader>a :Ack
 
 " Vimspector
-nmap <C-S-F5> <Plug>VimspectorRestart
-nmap <F5> <Plug>VimspectorContinue
-nmap <F3> <Plug>VimspectorStop
-nmap <F9> <Plug>VimspectorToggleBreakpoint
-nmap <F10> <Plug>VimspectorStepOver
-nmap <F11> <Plug>VimspectorStepInto
-nmap <S-F11> <Plug>VimspectorStepOut
+command! -nargs=+ Vfb call vimspector#AddFunctionBreakpoint(<f-args>)
+
+nnoremap <Leader>Gd :call vimspector#Launch()<cr>
+nnoremap <Leader>Gc :call vimspector#Continue()<cr>
+nnoremap <Leader>Gs :call vimspector#Stop()<cr>
+nnoremap <Leader>GR :call vimspector#Restart()<cr>
+nnoremap <Leader>Gp :call vimspector#Pause()<cr>
+nnoremap <Leader>Gb :call vimspector#ToggleBreakpoint()<cr>
+nnoremap <Leader>GB :call vimspector#ToggleConditionalBreakpoint()<cr>
+nnoremap <Leader>Gn :call vimspector#StepOver()<cr>
+nnoremap <Leader>Gi :call vimspector#StepInto()<cr>
+nnoremap <Leader>Go :call vimspector#StepOut()<cr>
+nnoremap <Leader>Gr :call vimspector#RunToCursor()<cr>
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
