@@ -45,10 +45,26 @@ Plug 'jlanzarotta/bufexplorer'
 
 " Allows cycling between yanked chunks
 Plug 'maxbrunsfeld/vim-yankstack'
+
 call plug#end()
 
 filetype plugin indent on
 syntax enable
+
+"----------------------------------------------------------
+" Vim native options
+"----------------------------------------------------------
+autocmd BufRead,BufNewFile *.c,*.js,*.ts,*.cpp,*.h,*.txt,*.md setlocal spell
+set spell spelllang=en_us
+
+ hi clear SpellBad
+ hi SpellBad cterm=underline
+ hi clear SpellRare
+ hi SpellRare cterm=underline
+ hi clear SpellCap
+ hi SpellCap cterm=underline
+ hi clear SpellLocal
+ hi SpellLocal cterm=underline
 
 "----------------------------------------------------------
 " Vimspector options
