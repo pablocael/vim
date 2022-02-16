@@ -19,7 +19,7 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'mileszs/ack.vim'
 
 " Plugin for easy commenting blocks in any file type
-Plug 'chrisbra/vim-commentary'
+Plug 'preservim/nerdcommenter'
 
 " Plugin for find files
 Plug 'ctrlpvim/ctrlp.vim'
@@ -37,7 +37,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plugin for surrounding blocks with ("or'
 Plug 'https://github.com/tpope/vim-surround.git'
 
-" If you have nodejs and yarn
+"Plugin for markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Allows showing buffes in a window and navigating between them
@@ -46,15 +46,24 @@ Plug 'jlanzarotta/bufexplorer'
 " Allows cycling between yanked chunks
 Plug 'maxbrunsfeld/vim-yankstack'
 
+" Solve mapping conflicts
+Plug 'lukhio/vim-mapping-conflicts'
+
+" Dev icons eye candy
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
-filetype plugin indent on
+" dev-icons config
+let g:webdevicons_enable = 1
+
 syntax enable
 
 "----------------------------------------------------------
 " Vim native options
 "----------------------------------------------------------
-autocmd BufRead,BufNewFile *.c,*.js,*.ts,*.cpp,*.h,*.txt,*.md setlocal spell
+autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
+autocmd BufRead,BufNewFile *.yaml,*.js,*.ts,*.cpp,*.h setlocal nospell
 set spell spelllang=en_us
 
  hi clear SpellBad
@@ -90,14 +99,17 @@ let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 
 let g:airline_powerline_fonts = 1
+let g:coc_config_home="$HOME/.config/coc/coc-settings.json"
 
 "----------------------------------------------------------
+"
 " NERDTree settings
 "----------------------------------------------------------
-let g:NERDTreeWinSize = 60
+let g:NERDTreeWinSize = 40
 let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.moc$']
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeShowHidden = 1
 set noeol
 
 "au VimEnter *  NERDTree
@@ -177,8 +189,8 @@ nmap <C-n> <Plug>yankstack_substitute_newer_paste
 "----------------------------------------------------------
 " Neovim's Python provider
 "----------------------------------------------------------
-let g:python_host_prog  = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog  = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 "----------------------------------------------------------
 " Ctrlp plugin cache configuration
@@ -191,7 +203,7 @@ endif
 "----------------------------------------------------------
 "  General vim configurations
 "----------------------------------------------------------
-set directory=$HOME/.vim/swapfiles
+set directory=$HOME/.config/nvim/swapfiles
 
 let mapleader = ","
 
@@ -203,7 +215,6 @@ packadd termdebug
 
 " Basic settings
 set foldmethod=syntax
-filetype plugin indent on
 
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -356,4 +367,4 @@ let g:clang_format#style_options = {
 
 
 
-
+call yankstack#setup()
