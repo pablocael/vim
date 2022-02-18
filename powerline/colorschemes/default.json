@@ -1,0 +1,60 @@
+{
+  "groups": {
+      "k8sstatus": {
+          "fg": "brightestorange",
+          "bg": "gray2",
+          "attrs": []
+      },
+      "k8sstatus:alert": {
+          "fg": "white",
+          "bg": "solarized:red",
+          "attrs": [
+              "bold"
+          ]
+      },
+      "k8sstatus_namespace": {
+          "fg": "gray10",
+          "bg": "darkestblue",
+          "attrs": []
+      },
+      "k8sstatus_namespace:alert": {
+          "fg": "darkestred",
+          "bg": "solarized:yellow",
+          "attrs": []
+      },
+      "k8sstatus_user": {
+          "fg": "white",
+          "bg": "green",
+          "attrs": []
+      },
+      "k8sstatus_version": {
+          "fg": "white",
+          "bg": "mediumorange",
+          "attrs": []
+      },
+      "k8sstatus:divider": {
+          "fg": "white",
+          "bg": "mediumorange",
+          "attrs": []
+      },
+    "gitstatus":                 { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch":          { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_clean":    { "fg": "green",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_dirty":    { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "gitstatus_branch_detached": { "fg": "mediumpurple",    "bg": "gray2", "attrs": [] },
+    "gitstatus_tag":             { "fg": "darkcyan",        "bg": "gray2", "attrs": [] },
+    "gitstatus_behind":          { "fg": "gray10",          "bg": "gray2", "attrs": [] },
+    "gitstatus_ahead":           { "fg": "gray10",          "bg": "gray2", "attrs": [] },
+    "gitstatus_staged":          { "fg": "green",           "bg": "gray2", "attrs": [] },
+    "gitstatus_unmerged":        { "fg": "brightred",       "bg": "gray2", "attrs": [] },
+    "gitstatus_changed":         { "fg": "mediumorange",    "bg": "gray2", "attrs": [] },
+    "gitstatus_untracked":       { "fg": "brightestorange", "bg": "gray2", "attrs": [] },
+    "gitstatus_stashed":         { "fg": "darkblue",        "bg": "gray2", "attrs": [] },
+    "gitstatus:divider":         { "fg": "gray8",           "bg": "gray2", "attrs": [] },
+    "kubernetes_cluster":         { "fg": "gray10", "bg": "darkestblue", "attrs": [] },
+    "kubernetes_cluster:alert":   { "fg": "gray10", "bg": "darkestred",  "attrs": [] },
+    "kubernetes_namespace":       { "fg": "gray10", "bg": "darkestblue", "attrs": [] },
+    "kubernetes_namespace:alert": { "fg": "gray10", "bg": "darkred",     "attrs": [] },
+    "kubernetes:divider":         { "fg": "gray4",  "bg": "darkestblue", "attrs": [] }
+  }
+}

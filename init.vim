@@ -106,6 +106,7 @@ let g:coc_config_home="$HOME/.config/coc/coc-settings.json"
 " NERDTree settings
 "----------------------------------------------------------
 let g:NERDTreeWinSize = 40
+highlight! link NERDTreeFlags NERDTreeDir
 let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.moc$']
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -123,7 +124,28 @@ set noeol
     wincmd l
   endif
 endfunction
+autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('py', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 "----------------------------------------------------------
 " Startify settings
 "----------------------------------------------------------
@@ -254,7 +276,7 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 hi Pmenu ctermbg=darkgray ctermfg=white
 
 " set current line color
-highlight CursorLine ctermbg=Black
+highlight CursorLine ctermbg=gray
 
 hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
