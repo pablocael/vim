@@ -58,6 +58,10 @@ Plug 'https://github.com/preservim/tagbar'
 " Show marks in the gutter
 Plug 'jacquesbh/vim-showmarks'
 
+" Edit yaml files
+Plug 'mrk21/yaml-vim'
+Plug 'pedrohdz/vim-yaml-folds'
+
 call plug#end()
 
 " dev-icons config
@@ -244,9 +248,6 @@ au BufRead * normal zR
 
 " Add gdb integration
 packadd termdebug
-
-" Basic settings
-set foldmethod=syntax
 
 " show existing tab with 4 spaces width
 set tabstop=4
