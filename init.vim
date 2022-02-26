@@ -52,12 +52,23 @@ Plug 'lukhio/vim-mapping-conflicts'
 " Dev icons eye candy
 Plug 'ryanoasis/vim-devicons'
 
+" Tagbar for code navigation
+Plug 'https://github.com/preservim/tagbar'
+
+" Show marks in the gutter
+Plug 'jacquesbh/vim-showmarks'
+
 call plug#end()
 
 " dev-icons config
 let g:webdevicons_enable = 1
 
 syntax enable
+
+"----------------------------------------------------------
+" Tagbar options
+"----------------------------------------------------------
+let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_2/ctags'
 
 "----------------------------------------------------------
 " Vim native options
@@ -124,7 +135,6 @@ set noeol
     wincmd l
   endif
 endfunction
-autocmd BufEnter * if &modifiable | NERDTreeFind | wincmd p | endif
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -253,7 +263,7 @@ set smartcase
 set undofile
 set nofixendofline
 
-set number
+set relativenumber
 set laststatus=2
 set clipboard=unnamedplus
 set listchars=eol:$,tab:>=,trail:.
@@ -354,7 +364,10 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
 nnoremap <Leader>e :CocDiagnostics<CR>
-nnoremap mm :NERDTreeToggle<CR>
+nnoremap <Leader>t :TagbarToggle<CR>
+nnoremap <Leader>m :NERDTreeToggle<CR>
+nnoremap <Leader>k :DoShowMarks<CR>
+nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>tw :Tws<CR>
 nnoremap <Leader>S :Startify <CR>
 nnoremap <Leader>ga :Git add %:p<CR>
