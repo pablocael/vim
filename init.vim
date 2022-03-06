@@ -77,6 +77,21 @@ let g:Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8_2/ctags'
 "----------------------------------------------------------
 " Vim native options
 "----------------------------------------------------------
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+syntax on
+
+" Color config
+set termguicolors
+highlight LineNr guifg=lightgray
+
+" Popup autocompletion menu
+highlight PmenuSel guibg=Black guifg=lightgray
+highlight Pmenu guibg=darkblue guifg=white
+
 autocmd BufRead,BufNewFile *.txt,*.md setlocal spell
 autocmd BufRead,BufNewFile *.yaml,*.js,*.ts,*.cpp,*.h setlocal nospell
 set spell spelllang=en_us
@@ -145,6 +160,14 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
+
+augroup nerdtreeconcealbrackets
+      autocmd!
+      autocmd FileType nerdtree syntax match hideBracketsInNerdTree "\]" contained conceal containedin=ALL
+      autocmd FileType nerdtree syntax match hideBracketsInNerdTree "\[" contained conceal containedin=ALL
+      autocmd FileType nerdtree setlocal conceallevel=3
+      autocmd FileType nerdtree setlocal concealcursor=nvic
+augroup END
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
@@ -265,6 +288,7 @@ set undofile
 set nofixendofline
 
 set relativenumber
+set number
 set laststatus=2
 set clipboard=unnamedplus
 set listchars=eol:$,tab:>=,trail:.
