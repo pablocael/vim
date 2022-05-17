@@ -1,0 +1,267 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hPREV3TkRVME4xb1hEVE13TURneE5qRXdORFUwTjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBSzRLCk1VZ3N6bDQxNHEzVC9oSDViY1VPUDE5OTc2Si9PMDFXRWk2MG16VWU4bHJrc3BjNDV6ejYxY2NEZThYQ3JvVkEKUlJqZkppdFlSYlZZd1BCbFlpVnJpbThUdDZNSGc5SHBKa3BaR21HNXQ2TkxuZlEycHZ5eSs1QmNRZ3JZRExRQwoyNU4vVHdnU2NaWDRsNlFZbVl5VHhwbjV4NUtkQmFCdWxjRVN1RmNzZFp5a0VvclJaVXdNOTQrNnd2a0l3bks3CkFnY01LOHNzVlB0SmdWandWUEdDMTJ6N2Y2eVVWdXowbzJWSGRqZUxTL0wwSGpqL0tIMlR5NlZwRTI3VjhqTG4KZE1LOFdyRGc0VjZoY1JBOWJVQ3lpdm9GYmVsc2lqRHMvdVFtNXlNdVpFYmFTZkdhQzBOV3ZYV0dxbXlKKzQyNgpNVEN4QUVEa0krT1lYMXhVYXEwQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFBamcwRGZXVENwNFBqUzVSV2RlMFpkcE1URDcKOGxuRnErb0ZMMDNtdkxsUHRFbnY2a0p0TE1IVUgzeWtoaTZjRGFqbS9vNXYraHRWZlZjQWRSemVrTXdDblpVWgpxSDIxeTlRSkIwK1dsbVFnR3JwMkE0a3lKTTNJSmUvRFdoL0lzaE1GZ2F0a0FWMU1zVG9iZHpZelVwdDhoQlBpCklqbzluVy80eWs3emkrcGdLNUNWRm96d0FkSURWOW40RkZiekZleWRzbUtmLzR2c1AzT2ZTQXhFWTBVYkM1YksKUHFqSzFlVk5EVTZtUytLOTJ6TzV0RVBJODRUNDBtWDg1R2tVb0ZoQ1R2SzZxampjbzlTekhEWDVZcjlMN3V1MQpzR2FpY1p3U1JhUEplY2ZEdDYzTlNXTnlEN251UUtwZ253UG90NWc1ai9kMzV5MmxJSlBHOHJIZDJKRT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://84EADECFF523CA893D1C022023024D96.sk1.ap-northeast-1.eks.amazonaws.com
+  name: arn:aws:eks:ap-northeast-1:046678576860:cluster/arene-ai-eks-prod
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeU1ETXdNakUwTlRBek4xb1hEVE15TURJeU9ERTBOVEF6TjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTVM5CmVIb3dpcklQNkd4YW1BdmMxMjU0RC8yOVpjZlpVNlhTL3hhdGdPZXJldG1wMGpWalhXU2E5aXVsdWNpVU9RTHYKZ3puS3dBazgxekxLZHdBc2h0UDR0SUsxaE1WSkQ2UmhRNjNsTUkzUXVySDVqaUZaZktYNVhVbjZobnhRZldUbgo2WU5aVFBxamxGYjhCMmxuNWVwVjlIZ1I1UjBZVGhSS1FianVVUUtYYVpNSkpJQXhlbHRLUnQ0b2VPM1AvUTY2CkthRE85TXNKQ3JPRVBUZDVjR0kvOENHYTZkb0Q5U2dCSDY5NXVNTklia1RmTEo5am1ETkJ5c1IzQ3pMZHJ2eTgKZEpqTEpvWGhIN04xZk53Yk1NWFJUR0xxODRHblJsSVM1UWNrQmRKaUZkYWYzU2NjN0lVNnpGY1R4VlFSSHdqcApVM1NFWVQ5OTFjdmoyKzNsWjBjQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZPTFBDZHkzM3VwdmVaVmVFU0U0S29JcDlqQzZNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFCYXVuUlowdDhhRDJOVnlWVUFaTUR3US8yRHU4YjErUGlEN1pEbVI4a2tML1hkYlczUQpyQzVqVTJGd0NLNXYzT3lWS0YxQ250b3R3ZllsWFdXcGFydjA5YU1sYjhpMFRHd2FqdklHSUZxQndtM2ozTVdNCmN5RVZqZVVadzJNRTNwem9jZDBUQ1FZaDEzRFo5UlZmVW5UZGlCZTliVWhpVHQyUDBTd0NyTERuMWluUWE4bXcKYU5PVWpjS2xWS0p4eU5SMzBNOW9IL3JNMVhpMUJ2UEpjaEcrTUVoQVFSL0wyM0xQa3R0N3BsZXhmN0p3YUMwawpqVFlMN00xM3V4c3N4amhMN2VBY1g3bTcvdjBuMnRoY09EQWpmaDcvZnRBRzdCVUR4YTVrRmk4ZXVYc3BRNFY2CmE5OFZRQTlSOC9GV1YzQzI3ZGNXWFpIQjdoQk9IajFNdHIrZgotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://87E3795171C4C1843E3521465F9F0DFE.gr7.ap-northeast-1.eks.amazonaws.com
+  name: arn:aws:eks:ap-northeast-1:564158468871:cluster/hbu-dev-eks-1
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hPVEUxTWpJd05Wb1hEVE13TURneE56RTFNakl3TlZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT21xCmFFMS9Ed2M2MjZuczdKaW0wUkRRbnJuQnA2Smp5bVIweHV4aHNhS1krdkRxME1NTmxkTjQ3eWd0NEpJZ2szeisKcDRWYnM2QnFtRnZsNGJqN2lrYTRyM1FmMEFObS92QXJkeDFLQnpXR3UrWWxoK3VVd3c5MmxDZTFlUVArZGVUUwpKV3FZRmI0Ni9QTzFtRSs5eGJJdUgwQzNWcVU1dWdCZFI4eS83VTVHb1loV3BOTStJa0R6WnNsUXMzOHNvUkR4CnhQTE1sNmZmQ092MzlXUmpxemRUaFo2OHBRNG5FKzB6VWJhZ1R3MW5ia3gxallralZVczJ0WERqQnlwNHJvY1YKZEhBQTJSWHkxejA4NXltUmNRcnIwTzJHcVhzd3BLVUZjcmVJWWp0N0owOS92SEFSZG9HWHBmTGo4M0F1SDB1eApaYUVTV2pnMjVYc3dBQUd2Y2pVQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFFeTA0OC9qY254bUIyZjRJODZlQUNSRmMxcVcKZmJibHdFSXRHTCs1aDAyOFEvb2N6SmhWdS9sR1hpM1AwWjBTb1RYZG4xQlk2TUtkV3JIVUZ3bUVheFQzcGZ2MwpJS0J1c2JhOWlDeDZpVDlIcS82UzVIdjBqdmxXcDQxRjBOekoxNmhUby9ySDgrT2J3R3h2QUgwQTNxZjRlUGEvCjdsNVNPSWhnMmx3OWxSN0dVZXBpMnlkeW92Y0lIUitIQ0dOTW1yZk5GQkovOVV3cW5zdDdJcnArMGxPQUk1aXoKT2ZMVzdSRVgzdWRSOEkzNEF5RWZ1MHh1eFdkdDBOVXU2TDkweVAyT1pYd1JGaUdnSXlZa09oNFZsSzhEcExEawpYQ2pzZXBPVlZ0VmpFaDFyWEF5OGZZU2daaElaMm5ialJpN0syakFCUnBiV01DbnRzK0hZRzRoVEJDWT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://FEB1C9D6C438178BE8A922F312DFB5E2.yl4.ap-northeast-1.eks.amazonaws.com
+  name: arn:aws:eks:ap-northeast-1:875025322749:cluster/arene-ai-eks-prod-user
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hOREEyTlRZeU9Wb1hEVE13TURneE1qQTJOVFl5T1Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTFdkCm5VUGpJY29qYm9QV2lQRUZKYzZwSmhqcGk5Y01IR0ZIWFZxaU1sMjRtWHI5dldZWkZWQXNzMFBpcjd4UG40MXIKVjQ1bVg2cC9GQ3BuaTRjR29YYzZRWWIwUkxvS2t1ckFmaDFMcUc2WjRLUkczcjQ0WEg5dmRpVFVQdGFRTDg3RAplZVZZMkxnVnZRbnk0WDVETzNBeW91SHBrbEFWemxicjlkeXdYY29WN09HWFBQbXNSSmtOVUxCa1hFT2g1aWtPCkZhZUtEWjZSTGJPMFh4UUxmOXVKaWRUKzNyZlZZZ0VTa2NyUHg5WGpxeEQ3Rlh3TFl3b1lMdUp2SzhvQnBiUHgKeld2MTNVR0RHZmlRZzk5UXZITlNPbTFSVGFReHoxYzF3UmNWbzJWdFR2RmZOUDZyYlYyOFhrejFvWEpSZk85RQpPM3dtS211NDJSOUxzS3dkVFJjQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFITFpmdEliNjl6Zmw3azdENStRS2puVVd4d0oKNUc4OVJRSEF0K0huRkMzV1cxdGRyd1UrYW1TTUdUeWkzOWxCcGZPdHJZaHU5NWpSOW8xNjB5VGluMG9PN2tULwpNeTR5NG1ZNXNaaVVrQlJnU1V6azJjaVF5NFEzTTdQMWxBQnJnTmR1Qmd6QW5yanVXMi9HMWE0SGE3VEtLaGRmCm5OdTFOZ2ZxdTgvc1dqb0NWZDVoanJEKy9NYmNEQlUrV1RUclo2bWhxaTRhaTZNendIa1FodExtN2xXZ3F2UTQKMk12elpWS3E0ZXZkdmdRN0EwM3Z2WXNmWllmWmhvdjE0akRGOGVWWVZBSm9pT2RQMDF1N2FBcVJSZkppNXVWZApsR1JIelZJYUtDcFA1dUpvM05UVW1NUVJyNk1hQi9mdXFXcklUZ0w3Q2pON0htTWFLQXBtVkZDeG0yZz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://1B2BBA53C600744478012E63CDE44ECC.gr7.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:485410855547:cluster/arene-ai-eks-stg
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3dOekV5TVRNMU4xb1hEVE13TURnd05URXlNVE0xTjFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTnR2CkMwQlVtZHB1ZVd0NC8zcUx1SUozcGhqazRtY1RUejI1M0l3S2JjTUk2ZkEwWDNFNm5KaktlcDA0VklLbENsTG0KSnc4S3NBcVhKRFpTK1FwVU4rOFRVUHd0Mk9tUXE4SStZeWJ3VC80dWVpSUJEUE9WS1NZcks1NVQzYjBNNTRYaQowSDg1V2paSFFaaHAySmFRQ0gxblVzWStyMzlOWHNxK2gxK0cxTXpkQ0NMTnkzM2xHSlBwMzlFRGNIMTJCc0VTCnhNZGpsb2ZFTGxnQzAxS2I3R2ZkdTlvOThFY2JiSExvaFo0RHBvUEkxL3EybC9kcFljSGY5aXF4dVBySTdYUnEKSnNXbEx5dDdMdVNtVG1aMXpYRzFwWW5sUGU0MC9Bc3RwcUY5ZVFlcTdqR1FVR2xTUkoxQWlBd0hKTmUvNnVMeApyc0xKL1NwOVg5ekQzUkNxd1prQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJY0praHJtaXVwRmwvM0pDSVMvYzV4bVVCeUIKMnorSDcvbFZTMGRLMlNtMWdrWDRXa1NRdXRMSjgwZkRJbitYWUNxYVc0bzdNb1RpRW10ZXhpODdLVFE4aEs1TwprcFdWR1FTMnMxSHVTYll3WUgwNldlOWgwVUU1NXFidmJNMjgyRWloQ0FTdXNIRGFNVTBCUG50azJjcFIzY2VSCjVRVHg3bVhYLy8wMDF3WmlpS3dBTlRldDhNNHRaQ1dqSHYrVDZiN2pLb1IwUXhpcnc0NmI1YUduV3VSYTQ5emYKa3o5QzROWVpXdTNhNDZUS2VxZVFBdnh6VHd5RlJObU9XVU1zMnNxRTJSZm96TnljUUtXbUg3azg5YWJwRTBUYQpzWG8xVElFbEY0ZnhNK0t5YlhQWCtJS0JRblRydFRPTkdnaGROY3VOOGF5YUt3Wm9YSjVZcUlqZzFkST0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://FDEB67418F8E034B58DA7C5D69C0BCFD.gr7.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:762377285961:cluster/arene-ai-eks-dev-user
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hPREV6TkRZeU1Gb1hEVE13TURneE5qRXpORFl5TUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT0gxCjlHaGpkNXRKdGdkY3UySXV3djlVUnAyOXlJamhGbDNmYTY3cnhqNU9QekV3R1p2ZDhUV2htTDc1VjErWWR2R3YKcEhpcnhCWEFhRXBwOVBPM29WWkp1aU02UUpKN0orYU9BWVJTakdEYXpPdmZaR0syZlFQcHU1VVF3NGNpR245MgpVUWdTV0JGNGlEeTYxYVF6WHlGd1pydWFqRDRlLzUwN09ZdGpiYzhaR0IySW9sQTN1ZDNYa3ZpcXFhcHBnTythClpDOFgyaFNHRnVuSW1FS2xyakdwQzRWQ2lQa2FQSmMyc0ZGSzh3Qmh6SnlQQkgxeEREMm5TWDZKNWVSYkdIYy8KSXFSejNSOUlUcHJzeld5NUlRc2VTcGZndWg3RkJJRFhnR0cwU0s0bzUwSXBOTFhKem9GVGVpV0JiMWVXUnNTTwpnQ3dXQmphd01qK0JGN0RXZnJVQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFDOU00TXdyclhWWDBkY29aOXVyUG9BVm51aXUKUlVPbnBFTW4wTHh2OXZheWxBTEpXd1RDcHl0YitWdFFWREtOV0phZnI0N2RFaWU4TDZCeHI0N0ZxN2RVRC9Jcwoxemh3amppR2w2anJhZ2dGNUFQNi96TDFwV2s5dTlpNCtJdHJoQUNNOS9WUWdiTW5WTlNJMUI5ZFNWMWpnRmpKCnJhbFZQZ0RHbG9YRUVxQ3FtL1ZpNUhBQ1A1bFNLSVJLa3FaNHJHdnRkME9DR1ZXTHRXTXJ1L28vTGo3a2Q4dEYKSXVVR3B4MUR1OUVNR1IyZ2x0enIxdGZRM0lraUt5WkttRzVDWEgrQnkzOWpCYjJPMUk1a3c5ck9xLzNHQUFiQQpUaHVlTWYrQkowWUhDbWZVQUpxa3o1OXRBTHZNU2hOYzNPWDk0dVdxSUN6Um0rQnpvSjdsN29kOXFybz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://1019B2D9BBFD4EFC984C116198F3E90A.gr7.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:820080045604:cluster/arene-ai-eks-stg-user
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3dOekV5TVRFeE5sb1hEVE13TURnd05URXlNVEV4Tmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT3Z3Ci9OZkZOWHNGQk9ueDI4U0I1T3VuWjFWNlZXbjBWblVZWE5tWUQ3djdFZWFkL3gzbkJXS3JJc05mb3Y1R1hUK2sKWEd1RUNGUHVRdkZXd0xUYkZIZ2wvT1NRU3NYaXNnT01MMXpjWEUrTk95WVhnZFFQeVNlQnpHRWt4T2VyL0VxZQpBWVI1Vmp5aCtvbXlmbVB4NklsMG5odDdYeDJTcFFyRWdRaVFxbzFwYk1ob3AxZXkxRXMxNC9rUTkvRWNzeXBnCnpTMkN2NWlIMW9CaHNwWWVjUEwyK01iL1hoNUFZYmloT2ZtTFFQVDdpL2VMTUpCLzVZUXhuK2lJMXVtYjdMYnMKaStwbEhLaE1CQ2RTUkpaMThXemRrVlptSlAzS1ZVekk0NjZoeWY3L0lpU1YvSlllbGVNRU1XMlVoZHNvUlZILwpmZm52bm5ZMDNtOGtITTcvMzhNQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFEY3c1OGpRZjVTVUpVV1Y4MDNScCtHekRRKzQKY29NOTVrN1cwbFB6UEx6M0duVjdBcFJCMzNxVGNWWEZmN281K2s0My9mVmhxdmZaR3E0dG9hLzV2WjRXd2lPZwp1Y1d2d0x2VjNEa3ZDNnIzQjhPMUxRSFBwdnZOcDBpMGNVaVlZWnp5Q1V2YnhCdmhiODBld3RkTVZTQ1o0NW8rCm5nR2VnWm1FUll2c3NRV25GVXNzTFBzTGw1MnBZU1N0S2kySW1WRVdjUURFY2RLZW8rNTFvTTlsOVl0ZDByNG8KSDRiYk4vSXZGWDBCV3RrQVE1TUQ1OEJMTkJxV1A2VDNsaXZFUDJnSmhLWVg5WFJhZXpkU0dlREc4ZnN0ZytFLwo2WDV6RlU3bzNJY1ZzYXgrTTNqR3hURmxidTlHQ3pmZk1yQ1ZORHdzM3BKdlUyYVNPaXQ2cjJtaTJRTT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://84FF936B98EE516CD67A933B812E5045.gr7.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:846209230485:cluster/arene-ai-eks-dev
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EY3pNVEEyTlRJeE0xb1hEVE13TURjeU9UQTJOVEl4TTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT3h2CmR5YXIzREw2dCtacG5idXNiL2xlU2hNcWRGKzdWcFZwVm9rKzJJUzFrV3pIOUJocDdhanVOQU5OMXA4UW9hbnQKbFVXR3lJVWV6Y3BxbjJqK2g3dWJ6UzQ0NS8rc0UyajhLYXV0RDQ2eGRzb2dvRGpiUEltSzdjTXRXV0FORjN4UQozeFRINVdxa1pFR3E0MXhKdHJ3ZU9DQnB1cERselNUT3hFek1WNXREUEdBMFZWYXpMVktUR092UXpiN2tQTWNQClZQZ1FTVTdtbTRPc2NGVTMyRnJ0c0d6cGRkNDhnVUtlYXBCNTArY2RPeDJFRFhWSVNSOGVCS2VVOWZDd09CUlEKREM4VFB4UFhhMVdQMUFBanlaaWw0TnlUbERBWkR5aVJMWFFGQzdBQjk4dmQ2aEZkSHJEcS84bHc5VjhTbUlIZQpjQ3dFcms4QTltblFRWE9qV2swQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFJR0JRejdlWkdHeW1tWTFsOE9WbjFCM0poV1gKSFQ1T2NHR3dUTUdydlNTTG5wZHlLVTIvb0ZMamFxajJya0l3WW03TTZqZmpUT3V3OEE3bElBMDVwb2tJQVFUVwp3MHpRdFpZU2VoTDI0R1RhcDVieGVrUDBnRWpFS0o3VEpjSHdaVzZORU1nM3NVSmZPVDVDSmxJTHFOVzdPQjFkCkdnVDQzcGxjSUdVN3cwazVGb2RmR3h4ZmhOVDdUTVY3U2ZnNlVMT3B2cWc4K3RmdnpmdC9vcFRjcStRT2lpNm8KN3ZLa1gzV1lSUlRFK3lualU0Z015NlJvSklVSUJFdTFNV2daRkYrYjlGRWo0T3hSOXhxTFI5VERKeEZlK2Q1SAp1a25oRzVzSENNK2tVSXEySitybWpNVDMrSkZLY2hoUUpkZkdyby9NTDJpRWJzQnkzUGkzQkNTVXlTOD0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://78F6B8396B91903A6C6F339DA239A359.sk1.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:846209230485:cluster/auth-gateway-poc
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJd01EZ3hPVEE1TVRZME0xb1hEVE13TURneE56QTVNVFkwTTFvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT1VuCllqcS84dDMydUJhTU4wTzdJVmd1NnlRZVpRclY4ZVVTSTljZk14MzZZK0d5bGhlU1BVU3I2eHJEQ01QL0V2RTcKcXlPUkhmK1F3VU9PZ1dnUjhuRGdUclpxcWFDbmpYeVJKY2E0SFlSL0tPWTkvWWhxelhKVHFYMlU4dDllY3czTAppZ2tXZnptUnZPMmpyYjM3a3hGSGJmS1pQMy9rT3ZuaElDSVVBaHZzN2VoTHZpdWxZR3ZkUXdQK0hrWGtvL1NaCmtDSk9ucTVDdWdrNHZOVk5LZW43NEZqREZaTFVEaFhTTWlRNXExc0Z5OWV4MWlKT2dpcDJBcVJEL05hTVRFK1YKWTVjZUt1QTFVbW9GUEJnS0g2RWFrR20xWFRIRG11UGE2R2kycGZiejJscHVwTmFJZ2F0VUt6dDJib1Y3c0FydgozY1ZMdm45cnFHT1k2blkxRXJrQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFMSFRTT09pRG1EWVB3UkpjOGRLaXgrbUQrcDAKMCtGYzd1N1VkeDN6VHpjWnl0OEJ2dlc1blZzZDhzLy9wdTlJVEJMWnhJVEFQWHVsVmNld2VHcFpYV0o5NzR3SwpCZlBwTWJXOVBiYndSY0VKQlZxdHU4c09MY3FxS2VYMkhzSmlPMmVKVlZ5NFIwckM4SGZSR2UzN3lNL0U0WHFwCkpqZEp4OUVNbXNaM2oya1I5WmFHL21VT1R4VS9GT3VBNE9EOE1ZQmhOZUZ4SGIvRXpmZ3YzQjB3djdPUWw5ckwKcU9JNENjUmxIVXRCZnJDbzlGbUtZTFFqU2VJMXlxdnh0SGFEVllHWFA4S3pzVWo0OTBQcnd5bkZJbGFTOGV4NwpsUE0yaG9sbVVHVUNwQUJrRTBIc0I4RVNXUDFmbjIwK0x6NE9QdjZpM2wrbFAvM0djVEdiZDBuQTBIcz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://9C1DC9F0C41DA2B5E3416C94818E85CA.yl4.us-east-1.eks.amazonaws.com
+  name: arn:aws:eks:us-east-1:884841261801:cluster/arene-ai-eks-prod-user
+contexts:
+- context:
+    cluster: arn:aws:eks:ap-northeast-1:046678576860:cluster/arene-ai-eks-prod
+    user: arn:aws:eks:ap-northeast-1:046678576860:cluster/arene-ai-eks-prod
+  name: JP:046678576860:prod
+- context:
+    cluster: arn:aws:eks:ap-northeast-1:564158468871:cluster/hbu-dev-eks-1
+    namespace: vision-ai-dev
+    user: arn:aws:eks:ap-northeast-1:564158468871:cluster/hbu-dev-eks-1
+  name: JP:564158468871:hbu-dev-eks-1(WC-AI)
+- context:
+    cluster: arn:aws:eks:ap-northeast-1:875025322749:cluster/arene-ai-eks-prod-user
+    namespace: arene-ai
+    user: arn:aws:eks:ap-northeast-1:875025322749:cluster/arene-ai-eks-prod-user
+  name: JP:875025322749:prod-user
+- context:
+    cluster: arn:aws:eks:us-east-1:485410855547:cluster/arene-ai-eks-stg
+    user: arn:aws:eks:us-east-1:485410855547:cluster/arene-ai-eks-stg
+  name: US:485410855547:stg
+- context:
+    cluster: arn:aws:eks:us-east-1:762377285961:cluster/arene-ai-eks-dev-user
+    namespace: arene-ai
+    user: arn:aws:eks:us-east-1:762377285961:cluster/arene-ai-eks-dev-user
+  name: US:762377285961:dev-user
+- context:
+    cluster: arn:aws:eks:us-east-1:820080045604:cluster/arene-ai-eks-stg-user
+    namespace: arene-ai
+    user: arn:aws:eks:us-east-1:820080045604:cluster/arene-ai-eks-stg-user
+  name: US:820080045604:stg-user
+- context:
+    cluster: arn:aws:eks:us-east-1:846209230485:cluster/arene-ai-eks-dev
+    user: arn:aws:eks:us-east-1:846209230485:cluster/arene-ai-eks-dev
+  name: US:846209230485:dev
+- context:
+    cluster: arn:aws:eks:us-east-1:884841261801:cluster/arene-ai-eks-prod-user
+    namespace: arene-ai
+    user: arn:aws:eks:us-east-1:884841261801:cluster/arene-ai-eks-prod-user
+  name: US:884841261801:prod-user
+current-context: JP:564158468871:hbu-dev-eks-1(WC-AI)
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:ap-northeast-1:046678576860:cluster/arene-ai-eks-prod
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ap-northeast-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-prod
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-prod-jp
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:ap-northeast-1:564158468871:cluster/hbu-dev-eks-1
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ap-northeast-1
+      - eks
+      - get-token
+      - --cluster-name
+      - hbu-dev-eks-1
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: wc-eks-cluster
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:ap-northeast-1:875025322749:cluster/arene-ai-eks-prod-user
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - ap-northeast-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-prod-user
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-prod-jp-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:485410855547:cluster/arene-ai-eks-stg
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-stg
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-stg
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:762377285961:cluster/arene-ai-eks-dev-user
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-dev-user
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-dev-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:762377285961:cluster/arene-ai-pipeline-poc-main
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-pipeline-poc-main
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-dev-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:762377285961:cluster/dev-arene-ai-pipeline
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - dev-arene-ai-pipeline
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-dev-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:820080045604:cluster/arene-ai-eks-stg-user
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-stg-user
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-stg-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:846209230485:cluster/arene-ai-eks-dev
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-dev
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-dev
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:846209230485:cluster/auth-gateway-poc
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - auth-gateway-poc
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-dev
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: arn:aws:eks:us-east-1:884841261801:cluster/arene-ai-eks-prod-user
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - us-east-1
+      - eks
+      - get-token
+      - --cluster-name
+      - arene-ai-eks-prod-user
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: arene-ai-prod-us-user
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
