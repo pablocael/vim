@@ -88,6 +88,8 @@ syntax on
 set termguicolors
 highlight LineNr guifg=lightgray
 
+hi Visual  guifg=#000000 guibg=#FFFFFF gui=none
+
 " Popup autocompletion menu
 highlight PmenuSel guibg=Black guifg=lightgray
 highlight Pmenu guibg=darkblue guifg=white
@@ -295,6 +297,7 @@ set listchars=eol:$,tab:>=,trail:.
 set list
 set background=dark
 set cursorline
+set cursorcolumn
 set hidden
 
 " make insertion of bracets to auto add closing bracets
@@ -311,14 +314,15 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 hi Pmenu ctermbg=darkgray ctermfg=white
 
 " set current line color
-highlight CursorLine ctermbg=gray
 
-hi cursorline cterm=none term=none
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight LineNr ctermfg=white ctermbg=236
-highlight CursorLine guibg=#303000 ctermbg=234
+highlight CursorColumn guibg=#222222 ctermbg=234
+highlight CursorLine guibg=#222222
 highlight Normal ctermbg=233
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 "----------------------------------------------------------
 "  Keymapping configurations

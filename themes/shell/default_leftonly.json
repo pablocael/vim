@@ -1,0 +1,54 @@
+{
+    "segments": {
+        "above": [
+            {
+                "left": [
+                    {
+                        "function": "powerline_k8sstatus.k8sstatus",
+                        "priority": 50,
+                        "args": {
+                            "show_namespace": true,
+                            "show_user": false,
+                            "show_version": false,
+                            "context_alert": [
+                                "us-east-1:884841261801:arene-ai-eks-prod-user"
+                            ],
+                            "namespace_alert": [
+                                "kube-system",
+                                "production",
+                                "default"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "left": [
+
+      {
+        "function": "powerline.segments.common.net.hostname",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.common.env.virtualenv",
+        "priority": 50
+      },
+      {
+        "function": "powerline_gitstatus.gitstatus",
+        "priority": 40
+      },
+      {
+        "function": "powerline.segments.shell.cwd",
+        "priority": 10
+      },
+      {
+        "function": "powerline.segments.shell.jobnum",
+        "priority": 20
+      },
+      {
+        "function": "powerline.segments.shell.last_pipe_status",
+        "priority": 10
+      }
+        ]
+    }
+}
