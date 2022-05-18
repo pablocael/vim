@@ -11,9 +11,7 @@
                             "show_user": false,
                             "show_version": false,
                             "context_alert": [
-                                "minikube",
-                                "production",
-                                "arene-ai-eks-stg-prod-user"
+                                "US:884841261801:prod-user"
                             ],
                             "namespace_alert": [
                                 "kube-system",
