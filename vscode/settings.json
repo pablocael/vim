@@ -1,0 +1,20 @@
+{
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.renderWhitespace": "trailing",
+    "editor.cursorStyle": "block",
+    "workbench.colorTheme": "GitHub Dark High Contrast",
+    "workbench.iconTheme": "vscode-icons",
+    "window.zoomLevel": 1,
+    "workbench.colorCustomizations": {
+        "editor.background": "#000000",
+        "editor.foreground": "#FFFFFF",
+        "editor.lineHighlightBackground": "#000000",
+        "editor.selectionHighlightBackground": "#FF0000",
+        "editor.findMatchBackground": "#FF0000",
+        "editor.findMatchHighlightBackground": "#FF0000",
+        "editor.findRangeHighlightBackground": "#fffdfd",
+        "editor.selectionBackground": "#0f80f0",
+        "editor.selectionForeground": "#f6e9e9",
+        "editor.inactiveSelectionBackground": "#00FF00"
+    }
+}
