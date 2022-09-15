@@ -29,6 +29,7 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Plugin showing files in a file tree pane
 Plug 'preservim/nerdtree'
+Plug 'unkiwii/vim-nerdtree-sync'
 
 " Plugin for better status bar
 Plug 'vim-airline/vim-airline'
@@ -58,9 +59,16 @@ Plug 'https://github.com/preservim/tagbar'
 " Show marks in the gutter
 Plug 'jacquesbh/vim-showmarks'
 
+" Manage projects
+Plug 'leafOfTree/vim-project'
+
 " Edit yaml files
 Plug 'mrk21/yaml-vim'
 Plug 'pedrohdz/vim-yaml-folds'
+
+" Jupyter notebooks
+Plug 'jpalardy/vim-slime', { 'for': 'python' }
+Plug 'hanschen/vim-ipython-cell', { 'for': 'python' }
 
 call plug#end()
 
@@ -68,6 +76,11 @@ call plug#end()
 let g:webdevicons_enable = 1
 
 syntax enable
+
+"----------------------------------------------------------
+" Vimslime options
+"----------------------------------------------------------
+let g:slime_target = "tmux"
 
 "----------------------------------------------------------
 " Tagbar options
@@ -156,6 +169,8 @@ set noeol
     wincmd l
   endif
 endfunction
+let g:nerdtree_sync_cursorline = 1
+let g:NERDTreeHighlightCursorline = 1
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -198,7 +213,7 @@ let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_session_savevars = ['&makeprg']
-let g:startify_bookmarks = [ '~/.config/nvim/init.vim' ]
+let g:startify_bookmarks = [ '~/.config/nvim/init.vim', '~/development/arene-ai-gateway', '~/development/arene-ai-services', '~/development/arene-ai-kubeflow']
 let g:startify_list_order = [
       \ ['  Bookmarks:'],
       \ 'bookmarks',
@@ -289,7 +304,6 @@ set smartcase
 set undofile
 set nofixendofline
 
-set relativenumber
 set number
 set laststatus=2
 set clipboard=unnamedplus
@@ -300,12 +314,18 @@ set cursorline
 set cursorcolumn
 set hidden
 
+
+"
+" Bufexplore options
+"
+ let g:bufExplorerShowRelativePath=1
+
 " make insertion of bracets to auto add closing bracets
 "inoremap { {<CR>}<Esc>ko
 "
 " make TAB and SHIFT + TAB to navigate between buffers in normal mode
-nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bn<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bp<CR>
 
 "----------------------------------------------------------
 "  Appearance configurations
@@ -318,8 +338,8 @@ hi Pmenu ctermbg=darkgray ctermfg=white
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 highlight LineNr ctermfg=white ctermbg=236
-highlight CursorColumn guibg=#222222 ctermbg=234
-highlight CursorLine guibg=#222222
+highlight CursorColumn guibg=black ctermbg=234
+highlight CursorLine guibg=black
 highlight Normal ctermbg=233
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
@@ -379,22 +399,20 @@ command! Tws call TrimWhitespace()
 let g:airline#extensions#tabline#buffer_min_count = 2
 
 nnoremap <esc><esc> :silent! nohls<cr>
+nnoremap <Leader>x :bd<CR>
 nnoremap <Leader>o :BufExplorerHorizontalSplit<CR>
 nnoremap <Leader>rf :Rename <C-R>=expand("%")<CR>
-nnoremap <Leader>j :JupyterConnect<CR>
-nnoremap <Leader>c :JupyterSendCell<CR>
-nnoremap <Leader>r :JupyterRunFile<CR>
 nnoremap <Leader>df :GenDefinition<CR>
 nnoremap <Leader>dc :GenDeclaration<CR>
 nnoremap <Leader>b :Break<CR>
 nnoremap <Leader>s :Step<CR>
 nnoremap <Leader>fi :CocFix<CR>
-nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap gt :bnext<CR>
 nnoremap gT :bprev<CR>
 nnoremap <Leader>e :CocDiagnostics<CR>
 nnoremap <Leader>t :TagbarToggle<CR>
 nnoremap <Leader>m :NERDTreeToggle<CR>
+nnoremap <Leader>pl :ProjectList<CR>
 nnoremap <Leader>k :DoShowMarks<CR>
 nnoremap <Leader>f :NERDTreeFind<CR>
 nnoremap <Leader>tw :Tws<CR>
@@ -410,6 +428,17 @@ nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gP :Git pull<CR>
 nnoremap <Leader>gh :Git browse<CR>
+
+" Magma key bindings (jupyter notebooks plugins)
+" nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+
+let g:magma_automatically_open_output = v:false
+let g:magma_image_provider = "ueberzug"
 
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
