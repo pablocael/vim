@@ -6,11 +6,11 @@ Plug 'puremourning/vimspector'
 " A plugin for vimspector to setup all python configurations
 Plug 'sagi-z/vimspectorpy', { 'do': { -> vimspectorpy#update() } }
 
-" Plugin for intellisence in multiple languages
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Plugin to show startup options and shortcuts
 Plug 'mhinz/vim-startify'
+
+" Python vscode like color scheme for neovim
+Plug 'Mofiqul/vscode.nvim'
 
 " Plugin for Git integration
 Plug 'https://github.com/tpope/vim-fugitive.git'
@@ -77,6 +77,17 @@ let g:webdevicons_enable = 1
 
 syntax enable
 
+
+"----------------------------------------------------------
+" vscode color theme enabling
+"----------------------------------------------------------
+lua require('vscode').change_style('dark')
+
+"----------------------------------------------------------
+" Enable 120 width column mark 
+"----------------------------------------------------------
+set colorcolumn=120
+
 "----------------------------------------------------------
 " Vimslime options
 "----------------------------------------------------------
@@ -128,7 +139,7 @@ set spell spelllang=en_us
 "----------------------------------------------------------
 " Airline options
 "----------------------------------------------------------
-let g:airline#extensions#tabline#enabled = 1           " enable airline tabline
+let g:airline#extensions#tabline#enabled = 0           " enable airline tabline
 let g:airline#extensions#tabline#ignore_bufadd_pat = '!|defx|gundo|nerd_tree|startify|tagbar|term://|undotree|vimfiler'
 let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
 let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
@@ -155,7 +166,8 @@ highlight! link NERDTreeFlags NERDTreeDir
 let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.moc$']
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 0
+let NERDTreeQuitOnOpen = 1
 set noeol
 
 "au VimEnter *  NERDTree
@@ -213,7 +225,7 @@ let g:startify_session_persistence    = 1
 let g:startify_session_delete_buffers = 1
 let g:startify_session_dir = '~/.config/nvim/session'
 let g:startify_session_savevars = ['&makeprg']
-let g:startify_bookmarks = [ '~/.config/nvim/init.vim', '~/development/arene-ai-gateway', '~/development/arene-ai-services', '~/development/arene-ai-kubeflow']
+let g:startify_bookmarks = [ '~/.config/nvim/init.vim', '~/development/arene-ai-sdk', '~/development/inadatron', '~/development/arene-ai-kubeflow']
 let g:startify_list_order = [
       \ ['  Bookmarks:'],
       \ 'bookmarks',
@@ -265,8 +277,8 @@ nmap <C-n> <Plug>yankstack_substitute_newer_paste
 "----------------------------------------------------------
 " Neovim's Python provider
 "----------------------------------------------------------
-let g:python_host_prog  = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog  = '/home/pabloelias/.pyenv/shims/python'
+let g:python3_host_prog = '/home/pabloelias/.pyenv/shims/python3'
 
 "----------------------------------------------------------
 " Ctrlp plugin cache configuration
@@ -341,8 +353,6 @@ highlight LineNr ctermfg=white ctermbg=236
 highlight CursorColumn guibg=black ctermbg=234
 highlight CursorLine guibg=black
 highlight Normal ctermbg=233
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 
 "----------------------------------------------------------
 "  Keymapping configurations
@@ -400,6 +410,7 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 
 nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap <Leader>x :bd<CR>
+noremap <Leader>F :CocCommand "editor.action.formatDocument"<CR>
 nnoremap <Leader>o :BufExplorerHorizontalSplit<CR>
 nnoremap <Leader>rf :Rename <C-R>=expand("%")<CR>
 nnoremap <Leader>df :GenDefinition<CR>
