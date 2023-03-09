@@ -41,6 +41,9 @@ Plug 'https://github.com/tpope/vim-surround.git'
 "Plugin for markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
+" Install coc
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Allows showing buffes in a window and navigating between them
 Plug 'jlanzarotta/bufexplorer'
 
@@ -84,7 +87,7 @@ syntax enable
 lua require('vscode').change_style('dark')
 
 "----------------------------------------------------------
-" Enable 120 width column mark 
+" Enable 120 width column mark
 "----------------------------------------------------------
 set colorcolumn=120
 
